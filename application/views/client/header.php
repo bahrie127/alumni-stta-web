@@ -55,7 +55,7 @@ $base_url=$this->config->item('base_url')."index.php";?>
             font-size: 24px;
             font-weight: 600;
             letter-spacing: 1px;
-            color: #3398dc;
+            color: rgb(0, 0, 0);
             padding: 5px 0 0 0;
             text-transform: uppercase;
             text-shadow: 0 0 1px rgba(0, 0, 0, 0.1);
@@ -76,6 +76,30 @@ $base_url=$this->config->item('base_url')."index.php";?>
             margin-left: 1px !important;
             padding-top: 30px !important;
             padding-bottom: 10px !important;
+        }
+
+        .g-brd-primary {
+            border-color: #0275d8 !important;
+        }
+
+        a {
+            color: #0275d8;
+            outline: none;
+        }
+
+        a:focus,
+        a:hover {
+            color: #ab1713;
+        }
+
+        .g-color-primary--hover {
+            color: #1f58ab;
+        }
+
+        .u-pagination-v1-4--active {
+            color: #fff;
+            background-color: #3398dc;
+            border-color: #3398dc;
         }
 
     </style>

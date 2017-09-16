@@ -130,7 +130,7 @@ $base_url=$this->config->item('base_url')."index.php";?>
             </div>
             <!-- End Article -->
             <div class="row g-mx-5--sm g-mb-3 g-py-10 float-right">
-                <a class="u-pagination-v1__item u-pagination-v1-4 g-brd-gray-light-v3 g-brd-primary--hover g-rounded-50 g-pa-7-16 g-color-blue" href="#" aria-label="Next">
+                <a class="u-pagination-v1__item u-pagination-v1-4 g-brd-gray-light-v3 g-brd-primary--hover g-rounded-50 g-pa-7-16 g-color-blue" href="<?php echo $base_url ?>/home/articles" aria-label="Next">
                     <span aria-hidden="true">
                       <strong>LIHAT SELENGKAPNYA</strong> <i class="fa fa-chevron-circle-right g-ml-5"></i>
                     </span>
@@ -262,7 +262,7 @@ $base_url=$this->config->item('base_url')."index.php";?>
             </div>
             <!-- End Article -->
             <div class="row g-mx-5--sm g-mb-3 g-py-10 float-right">
-                <a class="u-pagination-v1__item u-pagination-v1-4 g-brd-gray-light-v3 g-brd-primary--hover g-rounded-50 g-pa-7-16 g-color-blue" href="#" aria-label="Next">
+                <a class="u-pagination-v1__item u-pagination-v1-4 g-brd-gray-light-v3 g-brd-primary--hover g-rounded-50 g-pa-7-16 g-color-blue" href="<?php echo $base_url ?>/home/articles" aria-label="Next">
                     <span aria-hidden="true">
                       <strong>LIHAT SELENGKAPNYA</strong> <i class="fa fa-chevron-circle-right g-ml-5"></i>
                     </span>
@@ -396,7 +396,7 @@ $base_url=$this->config->item('base_url')."index.php";?>
             <!-- End Article -->
             <!-- Selengkapnya -->
             <div class="row g-mx-5--sm g-mb-3 g-py-10 float-right">
-                <a class="u-pagination-v1__item u-pagination-v1-4 g-brd-gray-light-v3 g-brd-primary--hover g-rounded-50 g-pa-7-16 g-color-blue" href="#" aria-label="Next">
+                <a class="u-pagination-v1__item u-pagination-v1-4 g-brd-gray-light-v3 g-brd-primary--hover g-rounded-50 g-pa-7-16 g-color-blue" href="<?php echo $base_url ?>/home/articles" aria-label="Next">
                     <span aria-hidden="true">
                       <strong>LIHAT SELENGKAPNYA</strong> <i class="fa fa-chevron-circle-right g-ml-5"></i>
                     </span>

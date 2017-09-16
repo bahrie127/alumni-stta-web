@@ -2,7 +2,7 @@
 $resource_path=$this->config->item('base_url').$this->config->item('resources_path');
 $base_url=$this->config->item('base_url')."index.php";?>
 <!-- News Content -->
-<section class="g-pt-50 g-pb-100 g-bg-secondary">
+<section class="g-pt-50 g-pb-40 g-bg-secondary">
     <div class="container">
         <div class="row g-mb-60">
             <!-- Articles Content -->

@@ -18,4 +18,10 @@ class Home extends CI_Controller
         $this->load->view("client/footer_home");
     }
 
+    public function articles(){
+        $this->load->view("client/header");
+        $this->load->view("client/content/list_article");
+        $this->load->view("client/footer");
+    }
+
 }

@@ -82,28 +82,5 @@ $base_url=$this->config->item('base_url')."index.php";?>
 </main>
 </body>
 
-<!-- JS Global Compulsory -->
-<script src="<?php echo $resource_path;?>vendor/jquery/jquery.min.js"></script>
-<script src="<?php echo $resource_path;?>vendor/jquery-migrate/jquery-migrate.min.js"></script>
-<script src="<?php echo $resource_path;?>vendor/jquery.easing/js/jquery.easing.min.js"></script>
-<script src="<?php echo $resource_path;?>vendor/tether.min.js"></script>
 <script src="<?php echo $resource_path;?>vendor/bootstrap/bootstrap.min.js"></script>
-
-<!-- JS Custom -->
-<script src="<?php echo $resource_path;?>js/custom.js"></script>
-<!-- JS Plugins Init. -->
-<script>
-    $(document).on('ready', function () {
-        // Header
-        $.HSCore.components.HSHeader.init($('#js-header'));
-        $.HSCore.helpers.HSHamburgers.init('.hamburger');
-
-        // Initialization of HSMegaMenu plugin
-        $('.js-mega-menu').HSMegaMenu({
-            event: 'hover',
-            pageContainer: $('.container'),
-            breakpoint: 991
-        });
-    });
-</script>
 </html>

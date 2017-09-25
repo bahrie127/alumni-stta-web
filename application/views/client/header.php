@@ -9,7 +9,7 @@ $base_url=$this->config->item('base_url')."index.php";?>
     <meta charset="utf-8">
     <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
     <meta http-equiv="x-ua-compatible" content="ie=edge">
-    <link rel="shortcut icon" href="//s3.amazonaws.com/wrapbootstrap/live/imgs/favicon.ico">
+    <link rel="shortcut icon" href="<?php echo $resource_path?>images/plane.png">
 
     <link rel="stylesheet" href="//fonts.googleapis.com/css?family=Open+Sans:400,300,600">
     <link rel="stylesheet" href="//fonts.googleapis.com/css?family=Roboto%3A700%2C300">
@@ -109,10 +109,8 @@ $base_url=$this->config->item('base_url')."index.php";?>
 <body>
 <main>
 <!-- Header -->
-<!--<header id="js-header" class="u-header u-header--static u-shadow-v1-1" style="position: fixed;top: 0;">-->
     <header id="js-header" class="u-header u-header--static u-shadow-v1-1">
    <div class="u-header__section u-header__section--light g-bg-white g-transition-0_3 g-py-10" style="background-color: #3398dc !important;">
-<!--        <div class="u-header__section u-header__section--dark g-bg-primary g-transition-0_3 g-py-10" style="background-repeat: repeat-x;background-image: linear-gradient(150deg, #72c02c, rgba(51, 152, 220, 0.7/**/));}">-->
         <nav class="js-mega-menu navbar navbar-toggleable-md">
             <div class="container">
                 <!-- Responsive Toggle Button -->
@@ -189,8 +187,6 @@ $base_url=$this->config->item('base_url')."index.php";?>
                                         aria-labelledby="nav-link--pages--blog--minimal">
                                         <li class="dropdown-item"><a class="nav-link" href="<?php echo $base_url ?>/detail/page">PEMBUATAN KARTU ALUMNI</a></li>
                                         <li class="dropdown-item"><a class="nav-link" href="<?php echo $base_url ?>/detail/page">LEGALISASI IJAZAH & TRANSKRIP NILAI</a></li>
-                                        <li class="dropdown-item"><a class="nav-link" href="<?php echo $base_url ?>/detail/page">DONASI BEASISWA ALUMNI UGM</a></li>
-
                                     </ul>
                                     <!-- End Submenu (level 2) -->
                                 </li>
@@ -214,46 +210,9 @@ $base_url=$this->config->item('base_url')."index.php";?>
                         </li>
                         <!-- End layanan -->
 
-                        <!--  alumni awards
-                        <li class="nav-item hs-has-sub-menu g-mx-10--lg g-mx-15--xl">
-                            <a id="nav-link--blog" class="nav-link g-py-7 g-px-0" href="#"
-                               aria-haspopup="true"
-                               aria-expanded="false"
-                               aria-controls="nav-submenu--blog"
-                            >ALUMNI AWARDS</a>
-
-                            <ul class="hs-sub-menu list-unstyled u-shadow-v11 g-brd-top g-brd-primary g-brd-top-2 g-min-width-220 g-mt-20 g-mt-10--lg--scrolling" id="nav-submenu--blog"
-                                aria-labelledby="nav-link--blog">
-                                <li class="dropdown-item"><a class="nav-link" href="<?php echo $base_url ?>/detail/page">TENTANG ALUMNI AWARDS</a></li>
-                                <li class="dropdown-item hs-has-sub-menu">
-                                    <a id="nav-link--pages--blog--minimal" class="nav-link" href="#"
-                                       aria-haspopup="true"
-                                       aria-expanded="false"
-                                       aria-controls="nav-submenu--pages--blog--minimal"
-                                    >PEMENANG</a>
-
-                                    <!-- Submenu (level 2)
-                                    <ul class="hs-sub-menu list-unstyled u-shadow-v11 g-brd-top g-brd-primary g-brd-top-2 g-min-width-220 g-mt-minus-2" id="nav-submenu--pages--blog--minimal"
-                                        aria-labelledby="nav-link--pages--blog--minimal">
-                                        <li class="dropdown-item"><a class="nav-link" href="<?php echo $base_url ?>/detail/page">2017</a></li>
-                                        <li class="dropdown-item"><a class="nav-link" href="<?php echo $base_url ?>/detail/page">2016</a></li>
-                                        <li class="dropdown-item"><a class="nav-link" href="<?php echo $base_url ?>/detail/page">2015</a></li>
-                                        <li class="dropdown-item"><a class="nav-link" href="<?php echo $base_url ?>/detail/page">2014</a></li>
-                                        <li class="dropdown-item"><a class="nav-link" href="<?php echo $base_url ?>/detail/page">2013</a></li>
-                                        <li class="dropdown-item"><a class="nav-link" href="<?php echo $base_url ?>/detail/page">2012</a></li>
-
-
-                                    </ul>
-                                    <!-- End Submenu (level 2)
-                                </li>
-
-                            </ul>
-                        </li>
-                        <!--  end alumni awards -->
-
                         <!--  tracer study -->
                         <li class="nav-item g-mx-10--lg g-mx-15--xl">
-                            <a href="<?php echo $base_url ?>/detail/page" class="nav-link g-py-7 g-px-0">TRACER STUDY</a>
+                            <a href="<?php echo $base_url ?>/tracer" class="nav-link g-py-7 g-px-0">TRACER STUDY</a>
                         </li>
                         <!--  end tracer study -->
 

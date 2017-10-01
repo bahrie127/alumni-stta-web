@@ -39,7 +39,7 @@ $config['app_url'] = 'http://localhost/alumni-stta';
 | variable so that it is blank.
 |
 */
-$config['index_page'] = 'index.php';
+$config['index_page'] = '';
 
 /*
 |--------------------------------------------------------------------------

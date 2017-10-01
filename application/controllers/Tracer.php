@@ -123,16 +123,29 @@ class Tracer extends CI_Controller
         $data['agenda'] = $this->model_content->get_content_home('agenda')->result();
         $data['news'] = $this->model_content->get_news_home('news')->result();
         if (strlen($username) >=4 && strlen($password) >=4 && strlen($email)>=4) {
-            $dataAlumni = array(
-                'username' => $username,
-                'password' => md5($password),
-                'email' => $email
-            );
-            $this->model_tracer->update_data_alumni($nim, $dataAlumni);
-            $data['title'] = 'Tracer Study - Result';
-            $this->load->view("client/header", $data);
-            $this->load->view("client/content/tracer/register_result");
-            $this->load->view("client/footer");
+            $is_register = $this->model_tracer->get_data_alumni($nim)->row()->is_register;
+//            echo $is_register;
+//            exit;
+            if($is_register==1){
+                $data['title'] = 'Tracer Study - Register';
+                $data['error_reg'] = 'Maaf, Anda sudah terdaftar, untuk mengetahui username/password harap hubungi admin.';
+                $this->load->view("client/header", $data);
+                $this->load->view("client/content/tracer/register");
+                $this->load->view("client/footer");
+            }else{
+                $dataAlumni = array(
+                    'username' => $username,
+                    'password' => md5($password),
+                    'email' => $email,
+                    'is_register' => '1'
+                );
+                $this->model_tracer->update_data_alumni($nim, $dataAlumni);
+                $data['title'] = 'Tracer Study - Result';
+                $this->load->view("client/header", $data);
+                $this->load->view("client/content/tracer/register_result");
+                $this->load->view("client/footer");
+            }
+
         }else{
             $data['title'] = 'Tracer Study - Register';
             $data['error_reg'] = 'Username/Password/Email tidak lengkap';

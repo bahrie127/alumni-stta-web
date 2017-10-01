@@ -1,6 +1,6 @@
 <?php
-$resource_path=$this->config->item('base_url').$this->config->item('resources_path');
-$base_url=$this->config->item('base_url')."index.php";?>
+$resource_path=$this->config->item('resources_path');
+$base_url=$this->config->item('app_url');?>
 <div class="g-font-size-16 g-line-height-1_8 g-mb-30">
     <div id="shortcode6">
         <div class="shortcode-html">

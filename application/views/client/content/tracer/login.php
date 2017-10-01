@@ -1,6 +1,6 @@
 <?php
-$resource_path=$this->config->item('base_url').$this->config->item('resources_path');
-$base_url=$this->config->item('base_url')."index.php";?>
+$resource_path=$this->config->item('resources_path');
+$base_url=$this->config->item('app_url');?>
 <!-- News Content -->
 <section class="g-pt-50 g-bg-secondary">
     <div class="container">
@@ -17,20 +17,39 @@ $base_url=$this->config->item('base_url')."index.php";?>
                         <div id="shortcode6">
                             <div class="shortcode-html">
                                 <!-- Horizontal Forms (using the grid) -->
-                                <form class="g-brd-around g-brd-gray-light-v4 g-pa-30 g-mb-30" action="<?php echo $base_url?>/tracer/login">
+                                <form class="g-brd-around g-brd-gray-light-v4 g-pa-30 g-mb-30" action="<?php echo $base_url?>/tracer/login" method="POST">
                                     <div class="form-group row g-mb-25">
                                         <label for="inputEmail3" class="col-sm-2 col-form-label">Username</label>
                                         <div class="col-sm-10">
-                                            <input type="text" class="form-control form-control-md rounded-0" id="inputEmail3" placeholder="Username">
+                                            <input type="text" class="form-control form-control-md rounded-0" id="inputEmail3" placeholder="Username" name="username">
                                         </div>
                                     </div>
 
                                     <div class="form-group row g-mb-25">
                                         <label for="inputPassword3" class="col-sm-2 col-form-label">Password</label>
                                         <div class="col-sm-10">
-                                            <input type="password" class="form-control form-control-md rounded-0" id="inputPassword3" placeholder="Password">
+                                            <input type="password" class="form-control form-control-md rounded-0" id="inputPassword3" placeholder="Password" name="password">
                                         </div>
                                     </div>
+                                    <?php if($error_login!=""):?>
+                                        <div class="form-group row g-mb-25">
+                                            <label for="error" class="col-sm-2 col-form-label"></label>
+                                            <div class="col-sm-10">
+                                                <div class="alert fade show g-bg-red-opacity-0_1 g-color-lightred rounded-0" role="alert">
+                                                    <button type="button" class="close u-alert-close--light g-ml-10 g-mt-1" data-dismiss="alert" aria-label="Close">
+                                                        <span aria-hidden="true">×</span>
+                                                    </button>
+
+                                                    <div class="media">
+                                                        <div class="media-body">
+                                                            <p class="m-0"><strong><?php echo $error_login;?></strong></p>
+                                                        </div>
+                                                    </div>
+                                                </div>
+                                            </div>
+                                        </div>
+
+                                    <?php endif; ?>
 
                                     <div class="form-group row">
                                         <div class="offset-sm-2 col-sm-10">
@@ -46,7 +65,10 @@ $base_url=$this->config->item('base_url')."index.php";?>
                                                 Mohon untuk meluangkan waktu sejenak untuk melakukan Registrasi sebagai alumni STTA
                                             </p>
                                             <p>
-                                                Untuk Registrasi klik link Registrasi <a href="<?php echo $base_url?>/tracer/search">disini</a>.
+                                                Untuk Registrasi klik button dibawah.
+                                            </p>
+                                            <p>
+                                                <a class="btn btn-md u-btn-primary" href="<?php echo $base_url?>/tracer/search">Registrasi</a>
                                             </p>
                                         </div>
                                     </div>

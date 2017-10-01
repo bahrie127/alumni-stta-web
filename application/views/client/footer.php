@@ -1,6 +1,6 @@
 <?php
-$resource_path=$this->config->item('base_url').$this->config->item('resources_path');
-$base_url=$this->config->item('base_url')."index.php";?>
+$resource_path=$this->config->item('resources_path');
+$base_url=$this->config->item('app_url');?>
 
 <!-- Footer -->
 <div class="g-bg-black-opacity-0_9 g-color-white-opacity-0_8 g-py-60">
@@ -9,81 +9,71 @@ $base_url=$this->config->item('base_url')."index.php";?>
             <!-- Footer Content -->
             <div class="col-lg-3 col-md-6 g-mb-40 g-mb-0--lg">
                 <div class="u-heading-v2-3--bottom g-brd-white-opacity-0_8 g-mb-20">
-                    <h2 class="u-heading-v2__title h6 text-uppercase mb-0">About Us</h2>
+                    <h2 class="u-heading-v2__title h6 text-uppercase mb-0">Tentang Kami</h2>
                 </div>
 
-                <p>About Unify dolor sit amet, consectetur adipiscing elit. Maecenas eget nisl id libero tincidunt sodales.</p>
+                <p>Website Alumni Sekolah Tinggi Teknologi Adisutjipto adalah portal berita, tips, lowongan, agenda, dan sebagainya yang bermanfaat bagi alumni, mahasiswa dan seluruh keluarga besar Sekolah Tinggi Teknologi Adisutjipto Yogyakarta</p>
             </div>
             <!-- End Footer Content -->
 
             <!-- Footer Content -->
             <div class="col-lg-3 col-md-6 g-mb-40 g-mb-0--lg">
                 <div class="u-heading-v2-3--bottom g-brd-white-opacity-0_8 g-mb-20">
-                    <h2 class="u-heading-v2__title h6 text-uppercase mb-0">Latest Posts</h2>
+                    <h2 class="u-heading-v2__title h6 text-uppercase mb-0">Berita Terbaru</h2>
                 </div>
-
+                <?php foreach($news as $row):?>
                 <article>
                     <h3 class="h6 g-mb-2">
-                        <a class="g-color-white-opacity-0_8 g-color-white--hover" href="#">Incredible template</a>
+                        <a class="g-color-white-opacity-0_8 g-color-white--hover" href="#"><?php echo $row->title?></a>
                     </h3>
-                    <div class="small g-color-white-opacity-0_6">May 8, 2017</div>
+                    <div class="small g-color-white-opacity-0_6">
+                        <?php
+                        date_default_timezone_set('Asia/Jakarta');
+                        $t = strtotime($row->date_created);
+                        echo date('d M y, H:i',$t);
+                        ?>
+                    </div>
                 </article>
-
-                <hr class="g-brd-white-opacity-0_1 g-my-10">
-
-                <article>
-                    <h3 class="h6 g-mb-2">
-                        <a class="g-color-white-opacity-0_8 g-color-white--hover" href="#">New features</a>
-                    </h3>
-                    <div class="small g-color-white-opacity-0_6">June 23, 2017</div>
-                </article>
-
-                <hr class="g-brd-white-opacity-0_1 g-my-10">
-
-                <article>
-                    <h3 class="h6 g-mb-2">
-                        <a class="g-color-white-opacity-0_8 g-color-white--hover" href="#">New terms and conditions</a>
-                    </h3>
-                    <div class="small g-color-white-opacity-0_6">September 15, 2017</div>
-                </article>
+                    <hr class="g-brd-white-opacity-0_1 g-my-10">
+                <?php endforeach;?>
             </div>
             <!-- End Footer Content -->
 
             <!-- Footer Content -->
             <div class="col-lg-3 col-md-6 g-mb-40 g-mb-0--lg">
                 <div class="u-heading-v2-3--bottom g-brd-white-opacity-0_8 g-mb-20">
-                    <h2 class="u-heading-v2__title h6 text-uppercase mb-0">Useful Links</h2>
+                    <h2 class="u-heading-v2__title h6 text-uppercase mb-0">Link Berguna</h2>
                 </div>
 
                 <nav class="text-uppercase1">
                     <ul class="list-unstyled g-mt-minus-10 mb-0">
                         <li class="g-pos-rel g-brd-bottom g-brd-white-opacity-0_1 g-py-10">
                             <h4 class="h6 g-pr-20 mb-0">
-                                <a class="g-color-white-opacity-0_8 g-color-white--hover" href="#">About Us</a>
+                                <a class="g-color-white-opacity-0_8 g-color-white--hover" href="http://Jobstreet.co.id">Jobstreet.co.id</a>
                                 <i class="fa fa-angle-right g-absolute-centered--y g-right-0"></i>
                             </h4>
                         </li>
                         <li class="g-pos-rel g-brd-bottom g-brd-white-opacity-0_1 g-py-10">
                             <h4 class="h6 g-pr-20 mb-0">
-                                <a class="g-color-white-opacity-0_8 g-color-white--hover" href="#">Portfolio</a>
+                                <a class="g-color-white-opacity-0_8 g-color-white--hover" href="http://jobsdb.com">Jobsdb.com</a>
                                 <i class="fa fa-angle-right g-absolute-centered--y g-right-0"></i>
                             </h4>
                         </li>
                         <li class="g-pos-rel g-brd-bottom g-brd-white-opacity-0_1 g-py-10">
                             <h4 class="h6 g-pr-20 mb-0">
-                                <a class="g-color-white-opacity-0_8 g-color-white--hover" href="#">Our Services</a>
+                                <a class="g-color-white-opacity-0_8 g-color-white--hover" href="http://rekrutmen.net">Rekrukment.net</a>
                                 <i class="fa fa-angle-right g-absolute-centered--y g-right-0"></i>
                             </h4>
                         </li>
                         <li class="g-pos-rel g-brd-bottom g-brd-white-opacity-0_1 g-py-10">
                             <h4 class="h6 g-pr-20 mb-0">
-                                <a class="g-color-white-opacity-0_8 g-color-white--hover" href="#">Latest Jobs</a>
+                                <a class="g-color-white-opacity-0_8 g-color-white--hover" href="http://openkerja.com">Openkerja.com</a>
                                 <i class="fa fa-angle-right g-absolute-centered--y g-right-0"></i>
                             </h4>
                         </li>
                         <li class="g-pos-rel g-py-10">
                             <h4 class="h6 g-pr-20 mb-0">
-                                <a class="g-color-white-opacity-0_8 g-color-white--hover" href="#">Contact Us</a>
+                                <a class="g-color-white-opacity-0_8 g-color-white--hover" href="https://sscn.bkn.go.id/">Badan Kepegawaian Negara</a>
                                 <i class="fa fa-angle-right g-absolute-centered--y g-right-0"></i>
                             </h4>
                         </li>
@@ -95,7 +85,7 @@ $base_url=$this->config->item('base_url')."index.php";?>
             <!-- Footer Content -->
             <div class="col-lg-3 col-md-6">
                 <div class="u-heading-v2-3--bottom g-brd-white-opacity-0_8 g-mb-20">
-                    <h2 class="u-heading-v2__title h6 text-uppercase mb-0">Our Contacts</h2>
+                    <h2 class="u-heading-v2__title h6 text-uppercase mb-0">Kontak Kami</h2>
                 </div>
 
                 <address class="g-bg-no-repeat g-font-size-12 mb-0" style="background-image: url(<?php echo $resource_path ?>images/map2.png);">
@@ -106,7 +96,7 @@ $base_url=$this->config->item('base_url')."index.php";?>
                       <i class="fa fa-map-marker"></i>
                     </span>
                         </div>
-                        <p class="mb-0">795 Folsom Ave, Suite 600, <br> San Francisco, CA 94107 795</p>
+                        <p class="mb-0">Jalan Janti Blok. R, Lanud Adisutjipto, Banguntapan, Bantul, Daerah Istimewa Yogyakarta 55198</p>
                     </div>
                     <!-- End Location -->
 
@@ -117,7 +107,7 @@ $base_url=$this->config->item('base_url')."index.php";?>
                       <i class="fa fa-phone"></i>
                     </span>
                         </div>
-                        <p class="mb-0">(+123) 456 7890 <br> (+123) 456 7891</p>
+                        <p class="mb-0">(0274) 451262</p>
                     </div>
                     <!-- End Phone -->
 
@@ -129,9 +119,9 @@ $base_url=$this->config->item('base_url')."index.php";?>
                     </span>
                         </div>
                         <p class="mb-0">
-                            <a class="g-color-white-opacity-0_8 g-color-white--hover" href="mailto:info@htmlstream.com">info@htmlstream.com</a>
+                            <a class="g-color-white-opacity-0_8 g-color-white--hover" href="alumni@stta.ac.id">alumni@stta.ac.id</a>
                             <br>
-                            <a class="g-color-white-opacity-0_8 g-color-white--hover" href="#">www.htmlstream.com</a>
+                            <a class="g-color-white-opacity-0_8 g-color-white--hover" href="http://alumni.stta.ac.id">www.alumni.stta.ac.id</a>
                         </p>
                     </div>
                     <!-- End Email and Website -->
@@ -152,25 +142,13 @@ $base_url=$this->config->item('base_url')."index.php";?>
                     <small class="d-block g-font-size-default g-mr-10 g-mb-10 g-mb-0--md">2017 © All Rights Reserved.</small>
                     <ul class="u-list-inline">
                         <li class="list-inline-item">
-                            <a class="g-color-white-opacity-0_8 g-color-white--hover" href="#">Alumni STTA</a>
+                            <a class="g-color-white-opacity-0_8 g-color-white--hover" href="http://alumni.stta.ac.id">Alumni</a>
                         </li>
                         <li class="list-inline-item">
                             <span>|</span>
                         </li>
                         <li class="list-inline-item">
-                            <a class="g-color-white-opacity-0_8 g-color-white--hover" href="#">STTA</a>
-                        </li>
-                        <li class="list-inline-item">
-                            <span>|</span>
-                        </li>
-                        <li class="list-inline-item">
-                            <a class="g-color-white-opacity-0_8 g-color-white--hover" href="#">License</a>
-                        </li>
-                        <li class="list-inline-item">
-                            <span>|</span>
-                        </li>
-                        <li class="list-inline-item">
-                            <a class="g-color-white-opacity-0_8 g-color-white--hover" href="#">Support</a>
+                            <a class="g-color-white-opacity-0_8 g-color-white--hover" href="http://stta.ac.id">STTA</a>
                         </li>
                     </ul>
                 </div>

@@ -1,6 +1,6 @@
 <?php
-$resource_path=$this->config->item('base_url').$this->config->item('resources_path');
-$base_url=$this->config->item('base_url')."index.php";?>
+$resource_path=$this->config->item('resources_path');
+$base_url=$this->config->item('app_url');?>
 <!-- News Content -->
 <section class="g-pt-50 g-bg-secondary">
     <div class="container">
@@ -17,24 +17,24 @@ $base_url=$this->config->item('base_url')."index.php";?>
                         <div id="shortcode6">
                             <div class="shortcode-html">
                                 <!-- Horizontal Forms (using the grid) -->
-                                <form class="g-brd-around g-brd-gray-light-v4 g-pa-30 g-mb-30" action="<?php echo $base_url?>/tracer/search_result">
+                                <form class="g-brd-around g-brd-gray-light-v4 g-pa-30 g-mb-30" action="<?php echo $base_url?>/tracer/search_result" method="POST">
                                     <div class="form-group row g-mb-25">
                                         <label for="namalengkap" class="col-sm-2 col-form-label">Nama Lengkap</label>
                                         <div class="col-sm-10">
-                                            <input type="text" class="form-control form-control-md rounded-0" id="namalengkap" placeholder="Nama Lengkap">
+                                            <input type="text" class="form-control form-control-md rounded-0" name="nama" id="nama" placeholder="Nama Lengkap">
                                         </div>
                                     </div>
 
                                     <div class="form-group row g-mb-25">
                                         <label for="jurusan" class="col-sm-2 col-form-label">Jurusan</label>
                                         <div class="col-sm-10">
-                                            <select class="form-control rounded-0" id="jurusan">
-                                                <option value="semua">Semua Jurusan</option>
-                                                <option value="Teknik Penerbangan">Teknik Penerbangan</option>
-                                                <option value="Teknik Informatika">Teknik Informatika</option>
-                                                <option value="Teknik Mesin">Teknik Mesin</option>
-                                                <option value="Teknik Industri">Teknik Industri</option>
-                                                <option value="Teknik Elektro">Teknik Elektro</option>
+                                            <select class="form-control rounded-0" id="jurusan" name="jurusan">
+                                                <option value="all">Semua Jurusan</option>
+                                                <option value="40201">Teknik Penerbangan</option>
+                                                <option value="55201">Teknik Informatika</option>
+                                                <option value="21201">Teknik Mesin</option>
+                                                <option value="26201">Teknik Industri</option>
+                                                <option value="20201">Teknik Elektro</option>
                                             </select>
                                         </div>
                                     </div>
@@ -42,20 +42,20 @@ $base_url=$this->config->item('base_url')."index.php";?>
                                     <div class="form-group row g-mb-25">
                                         <label for="angkatan" class="col-sm-2 col-form-label">Angkatan</label>
                                         <div class="col-sm-10">
-                                            <select class="form-control rounded-0" id="jurusan">
-                                                <option value="semua">Semua Angkatan</option>
-                                                <option value="2002">2002</option>
-                                                <option value="2003">2003</option>
-                                                <option value="2004">2004</option>
-                                                <option value="2005">2005</option>
-                                                <option value="2006">2006</option>
-                                                <option value="2007">2007</option>
-                                                <option value="2008">2008</option>
-                                                <option value="2009">2009</option>
-                                                <option value="2010">2010</option>
-                                                <option value="2011">2011</option>
-                                                <option value="2012">2012</option>
-                                                <option value="2013">2013</option>
+                                            <select class="form-control rounded-0" id="angkatan" name="angkatan">
+                                                <option value="all">Semua Angkatan</option>
+                                                <option value="02">2002</option>
+                                                <option value="03">2003</option>
+                                                <option value="04">2004</option>
+                                                <option value="05">2005</option>
+                                                <option value="06">2006</option>
+                                                <option value="07">2007</option>
+                                                <option value="08">2008</option>
+                                                <option value="09">2009</option>
+                                                <option value="10">2010</option>
+                                                <option value="11">2011</option>
+                                                <option value="12">2012</option>
+                                                <option value="13">2013</option>
                                             </select>
                                         </div>
                                     </div>

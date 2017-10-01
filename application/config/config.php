@@ -25,7 +25,9 @@ defined('BASEPATH') OR exit('No direct script access allowed');
 */
 $config['base_url'] = 'http://localhost/alumni-stta/';
 
-$config['resources_path'] = 'assets/';
+$config['resources_path'] = 'http://localhost/alumni-stta/assets/';
+
+$config['app_url'] = 'http://localhost/alumni-stta';
 
 /*
 |--------------------------------------------------------------------------

@@ -1,11 +1,11 @@
 <?php
-$resource_path=$this->config->item('base_url').$this->config->item('resources_path');
-$base_url=$this->config->item('base_url')."index.php";?>
+$resource_path=$this->config->item('resources_path');
+$base_url=$this->config->item('app_url');?>
 <!DOCTYPE html>
 <html lang="en">
 <head>
     <!-- Title -->
-    <title>Alumni - Sekolah Tinggi Teknologi Adisutjipto</title>
+    <title><?php echo $title;?></title>
     <meta charset="utf-8">
     <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
     <meta http-equiv="x-ua-compatible" content="ie=edge">
@@ -156,9 +156,9 @@ $base_url=$this->config->item('base_url')."index.php";?>
                                 aria-labelledby="nav-link-pages">
 
                                 <!-- list -->
-                                <li class="dropdown-item"><a class="nav-link" href="<?php echo $base_url ?>/detail/page">PROFIL HUBUNGAN ALUMNI</a></li>
-                                <li class="dropdown-item"><a class="nav-link" href="<?php echo $base_url ?>/detail/page">STRUKTUR ORGANISASI</a></li>
-                                <li class="dropdown-item"><a class="nav-link" href="<?php echo $base_url ?>/detail/page">DIREKTORI STAF</a></li>
+                                <li class="dropdown-item"><a class="nav-link" href="<?php echo $base_url ?>/detail/read/pages/profil-hubungan-alumni">PROFIL HUBUNGAN ALUMNI</a></li>
+                                <li class="dropdown-item"><a class="nav-link" href="<?php echo $base_url ?>/detail/read/pages/struktur-organisasi">STRUKTUR ORGANISASI</a></li>
+                                <li class="dropdown-item"><a class="nav-link" href="<?php echo $base_url ?>/detail/read/pages/direktori-staf">DIREKTORI STAF</a></li>
                                 <!-- End list -->
 
                             </ul>
@@ -185,8 +185,8 @@ $base_url=$this->config->item('base_url')."index.php";?>
                                     <!-- Submenu (level 2) -->
                                     <ul class="hs-sub-menu list-unstyled u-shadow-v11 g-brd-top g-brd-primary g-brd-top-2 g-min-width-220 g-mt-minus-2" id="nav-submenu--pages--blog--minimal"
                                         aria-labelledby="nav-link--pages--blog--minimal">
-                                        <li class="dropdown-item"><a class="nav-link" href="<?php echo $base_url ?>/detail/page">PEMBUATAN KARTU ALUMNI</a></li>
-                                        <li class="dropdown-item"><a class="nav-link" href="<?php echo $base_url ?>/detail/page">LEGALISASI IJAZAH & TRANSKRIP NILAI</a></li>
+                                        <li class="dropdown-item"><a class="nav-link" href="<?php echo $base_url ?>/detail/read/pages/pembuatan-kartu-alumni">PEMBUATAN KARTU ALUMNI</a></li>
+                                        <li class="dropdown-item"><a class="nav-link" href="<?php echo $base_url ?>/detail/read/pages/legalisasi-ijazah--transkrip-nilai">LEGALISASI IJAZAH & TRANSKRIP NILAI</a></li>
                                     </ul>
                                     <!-- End Submenu (level 2) -->
                                 </li>
@@ -201,8 +201,8 @@ $base_url=$this->config->item('base_url')."index.php";?>
                                     <!-- Submenu (level 2) -->
                                     <ul class="hs-sub-menu list-unstyled u-shadow-v11 g-brd-top g-brd-primary g-brd-top-2 g-min-width-220 g-mt-minus-2" id="nav-submenu--pages--blog--grid-bg"
                                         aria-labelledby="nav-link--pages--blog--grid-bg">
-                                        <li class="dropdown-item"><a class="nav-link" href="<?php echo $base_url ?>/detail/page">Instansi atau Perusahaan</a></li>
-                                        <li class="dropdown-item"><a class="nav-link" href="<?php echo $base_url ?>/detail/page">LOWONGAN KERJA</a></li>
+                                        <li class="dropdown-item"><a class="nav-link" href="<?php echo $base_url ?>/detail/read/pages/instansi-atau-perusahaan">Instansi atau Perusahaan</a></li>
+                                        <li class="dropdown-item"><a class="nav-link" href="<?php echo $base_url ?>/detail/read/pages/lowongan-kerja">LOWONGAN KERJA</a></li>
                                     </ul>
                                     <!-- End Submenu (level 2) -->
                                 </li>
@@ -228,10 +228,10 @@ $base_url=$this->config->item('base_url')."index.php";?>
                                 aria-labelledby="nav-link-pages">
 
                                 <!-- list -->
-                                <li class="dropdown-item"><a class="nav-link" href="<?php echo $base_url ?>/detail/page">KONTAK KAMI</a></li>
-                                <li class="dropdown-item"><a class="nav-link" href="<?php echo $base_url ?>/detail/page">FAKULTAS & SEKOLAH</a></li>
-                                <li class="dropdown-item"><a class="nav-link" href="<?php echo $base_url ?>/detail/page">MEDIA SOSIAL & HOTLINE SERVICE</a></li>
-                                <li class="dropdown-item"><a class="nav-link" href="<?php echo $base_url ?>/detail/page">KELUARGA ALUMNI STTA</a></li>
+                                <li class="dropdown-item"><a class="nav-link" href="<?php echo $base_url ?>/detail/read/pages/kontak-kami">KONTAK KAMI</a></li>
+                                <li class="dropdown-item"><a class="nav-link" href="<?php echo $base_url ?>/detail/read/pages/fakultas--sekolah">FAKULTAS & SEKOLAH</a></li>
+                                <li class="dropdown-item"><a class="nav-link" href="<?php echo $base_url ?>/detail/read/pages/media-sosial--hotline-service">MEDIA SOSIAL & HOTLINE SERVICE</a></li>
+                                <li class="dropdown-item"><a class="nav-link" href="<?php echo $base_url ?>/detail/read/pages/keluarga-alumni-stta">KELUARGA ALUMNI STTA</a></li>
                                 <!-- End list -->
 
                             </ul>

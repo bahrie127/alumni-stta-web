@@ -1,6 +1,6 @@
 <?php
-$resource_path=$this->config->item('base_url').$this->config->item('resources_path');
-$base_url=$this->config->item('base_url')."index.php";?>
+$resource_path=$this->config->item('resources_path');
+$base_url=$this->config->item('app_url')?>
 <!DOCTYPE html>
 <html lang="en">
 <head>

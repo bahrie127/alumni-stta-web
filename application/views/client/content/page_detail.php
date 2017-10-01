@@ -2,9 +2,9 @@
 $resource_path=$this->config->item('resources_path');
 $base_url=$this->config->item('app_url');?>
 <!-- News Content -->
-<section class="g-pt-50 g-pb-40 g-bg-secondary">
+<section class="g-pt-50 g-bg-secondary">
     <div class="container">
-        <div class="row g-mb-60">
+        <div class="row">
             <!-- Articles Content -->
             <div class="col-lg-9 g-mb-50 g-mb-0--lg">
                 <article class="g-mb-60">
@@ -17,11 +17,7 @@ $base_url=$this->config->item('app_url');?>
                             </li>
                             <li class="list-inline-item g-mx-10">/</li>
                             <li class="list-inline-item">
-                                <?php
-                                date_default_timezone_set('Asia/Jakarta');
-                                $t = strtotime($detail->date_created);
-                                echo date('d M y, H:i',$t);
-                                ?>
+                                July 20, 2017
                             </li>
                         </ul>
 
@@ -47,11 +43,13 @@ $base_url=$this->config->item('app_url');?>
                     </header>
 
                     <div class="g-font-size-16 g-line-height-1_8 g-mb-30">
-                        <div class="g-bg-gray-light-v5">
+                        <figure class="u-shadow-v25 g-mb-30">
+                            <img class="img-fluid w-100" src="<?php echo $resource_path ?>uploads/files/<?php echo $detail->image_url?>" alt="<?php echo $detail->title?>">
+                        </figure>
+
                         <?php echo $detail->text?>
-                        </div>
-                        <img class="img-fluid w-100" src="<?php echo $resource_path ?>uploads/files/<?php echo $detail->image_url?>" alt="<?php echo $detail->title?>">
                     </div>
+
 
                     <hr class="g-brd-gray-light-v4">
 

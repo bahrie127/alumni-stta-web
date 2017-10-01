@@ -1,6 +1,6 @@
 <?php
-$resource_path=$this->config->item('base_url').$this->config->item('resources_path');
-$base_url=$this->config->item('base_url')."index.php";?>
+$resource_path=$this->config->item('resources_path');
+$base_url=$this->config->item('app_url');?>
 <!DOCTYPE html>
 <html>
 <head>
@@ -165,7 +165,7 @@ $base_url=$this->config->item('base_url')."index.php";?>
                     <!-- End Users Contacts -->
 
                     <!-- Comments -->
-                    <a href="<?php echo $base_url?>//adminx/agenda" class="list-group-item <?php if($data['title']=='Agenda'){echo 'active';} else {echo 'list-group-item-action';}?> justify-content-between">
+                    <a href="<?php echo $base_url?>/adminx/agenda" class="list-group-item <?php if($data['title']=='Agenda'){echo 'active';} else {echo 'list-group-item-action';}?> justify-content-between">
                         <span><i class="icon-bubbles g-pos-rel g-top-1 g-mr-8"></i>Agenda</span>
                     </a>
                     <!-- End Comments -->
@@ -185,6 +185,10 @@ $base_url=$this->config->item('base_url')."index.php";?>
 <!--                    </a>-->
                     <a href="<?php echo $base_url?>/adminx/data_alumni" class="list-group-item <?php if($data['title']=='Data Alumni'){echo 'active';} else {echo 'list-group-item-action';}?> justify-content-between">
                         <span><i class="icon-settings g-pos-rel g-top-1 g-mr-8"></i>Data Alumni</span>
+                    </a>
+
+                    <a href="<?php echo $base_url?>/adminx/data_mahasiswa" class="list-group-item <?php if($data['title']=='Data Mahasiswa'){echo 'active';} else {echo 'list-group-item-action';}?> justify-content-between">
+                        <span><i class="icon-settings g-pos-rel g-top-1 g-mr-8"></i>Data Mahasiswa</span>
                     </a>
 
                     <a href="<?php echo $base_url?>/adminx/kuisioner_alumni" class="list-group-item <?php if($data['title']=='Kuisioner Alumni'){echo 'active';} else {echo 'list-group-item-action';}?> justify-content-between">

@@ -5,7 +5,7 @@
  *
  * @author	Anggy Trisnawan
  */
-class Auth{
+class Auth_client{
     var $CI = NULL;
     function __construct()
     {
@@ -16,7 +16,7 @@ class Auth{
     function do_login($username,$password)
     {
         // cek di database, ada ga?
-        $this->CI->db->from('db_admin');
+        $this->CI->db->from('db_alumni');
         $this->CI->db->where('username',$username);
         $this->CI->db->where('password',md5($password));
         $result = $this->CI->db->get();
@@ -31,9 +31,9 @@ class Auth{
             $userdata = $result->row();
             $session_data = array(
                 'id_login'	=> $userdata->id,
-                'name'		=> $userdata->name,
+                'nama'		=> $userdata->nama,
                 'username' => $userdata->username,
-                'level' => $userdata->level
+                'nim' => $userdata->nim
             );
             // buat session
             $this->CI->session->set_userdata($session_data);
@@ -54,7 +54,7 @@ class Auth{
     {
         if($this->is_logged_in() == false)
         {
-            redirect('adm/login');
+            redirect('tracer');
         }
     }
 

@@ -1,6 +1,6 @@
 <?php
-$resource_path=$this->config->item('base_url').$this->config->item('resources_path');
-$base_url=$this->config->item('base_url')."index.php";?>
+$resource_path=$this->config->item('resources_path');
+$base_url=$this->config->item('app_url');?>
 <!-- News Content -->
 <section class="g-pt-50 g-bg-secondary">
     <div class="container">
@@ -16,35 +16,47 @@ $base_url=$this->config->item('base_url')."index.php";?>
                         <h4>Validasi</h4>
                         <div id="shortcode6">
                             <div class="shortcode-html">
+                                <?php if($valid){?>
                                 <!-- Horizontal Forms (using the grid) -->
-                                <form class="g-brd-around g-brd-gray-light-v4 g-pa-30 g-mb-30" action="<?php echo $base_url?>/tracer/register">
+                                <form class="g-brd-around g-brd-gray-light-v4 g-pa-30 g-mb-30" action="<?php echo $base_url?>/tracer/register" method="POST">
+                                    <div class="form-group row g-mb-25">
+                                        <label for="nim" class="col-sm-2 col-form-label">Nim</label>
+                                        <div class="col-sm-10">
+                                            <input type="text" class="form-control form-control-md rounded-0" name="nim" id="nim" value="<?php echo $mhs->nim?>" readonly>
+                                        </div>
+                                    </div>
                                     <div class="form-group row g-mb-25">
                                         <label for="nama" class="col-sm-2 col-form-label">Nama</label>
                                         <div class="col-sm-10">
-                                            <input type="text" class="form-control form-control-md rounded-0" id="nama" value="Saiful Bahri" readonly>
+                                            <input type="text" class="form-control form-control-md rounded-0" name="nama" id="nama" value="<?php echo $mhs->nama?>" readonly>
                                         </div>
                                     </div>
 
                                     <div class="form-group row g-mb-25">
                                         <label for="jurusan" class="col-sm-2 col-form-label">Jurusan</label>
                                         <div class="col-sm-10">
-                                            <input type="text" class="form-control form-control-md rounded-0" id="jurusan" value="Teknik Informatika" readonly>
+                                            <input type="text" class="form-control form-control-md rounded-0" name="jurusan" id="jurusan" value="<?php echo $mhs->nm_prodi?>" readonly>
                                         </div>
                                     </div>
 
                                     <div class="form-group row g-mb-25">
                                         <label for="angkatan" class="col-sm-2 col-form-label">Angkatan</label>
                                         <div class="col-sm-10">
-                                            <input type="text" class="form-control form-control-md rounded-0" id="angkatan" value="2008" readonly>
+                                            <input type="text" class="form-control form-control-md rounded-0" name="angkatan" id="angkatan" value="20<?php echo substr($mhs->nim,0,2)?>" readonly>
                                         </div>
                                     </div>
 
                                     <div class="form-group row g-mb-25">
                                         <label for="lahir" class="col-sm-2 col-form-label">Tanggal Lahir</label>
-                                        <div class="col-sm-6">
-                                            <input class="form-control form-control-md rounded-0" type="date" value="1990-01-01" id="lahir">
+                                        <div class="col-sm-4">
+                                            <input class="form-control form-control-md rounded-0" type="text" name="tgl_lahir">
                                         </div>
-                                            <label class="col-sm-4">format: mm/dd/yyyy</label>
+                                            <label class="col-sm-6">format: yyyy-mm-dd contoh :(1992-02-25) <br>
+                                                <?php if(!$tgl_valid){?>
+                                                    <p style="color: red">Format tanggal lahir salah</p>
+                                                <?php }?>
+
+                                            </label>
                                     </div>
 
                                     <div class="form-group row">
@@ -54,6 +66,11 @@ $base_url=$this->config->item('base_url')."index.php";?>
                                     </div>
                                 </form>
                                 <!-- End Horizontal Forms (using the grid) -->
+                                <?php } else {?>
+                                    <div class="alert alert-danger" role="alert">
+                                        <p>Data Alumni tidak ditemukan</p>
+                                    </div>
+                                <?php }?>
                             </div>
                         </div>
                     </div>

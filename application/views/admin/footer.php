@@ -1,6 +1,6 @@
 <?php
-$resource_path=$this->config->item('base_url').$this->config->item('resources_path');
-$base_url=$this->config->item('base_url')."index.php";?>
+$resource_path=$this->config->item('resources_path');
+$base_url=$this->config->item('app_url');?>
 
 </div>
 <!-- End Profle Content -->
@@ -81,6 +81,6 @@ $base_url=$this->config->item('base_url')."index.php";?>
 <!-- End Copyright Footer -->
 </main>
 </body>
-
+<script src="<?php echo $resource_path;?>vendor/tether.min.js"></script>
 <script src="<?php echo $resource_path;?>vendor/bootstrap/bootstrap.min.js"></script>
 </html>

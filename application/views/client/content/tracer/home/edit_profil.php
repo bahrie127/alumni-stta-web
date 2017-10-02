@@ -190,7 +190,7 @@ $base_url=$this->config->item('app_url');?>
                             <div class="form-group row g-mb-15">
                                 <label for="nama" class="col-sm-3 col-form-label">Kota</label>
                                 <div class="col-sm-9">
-                                    <select name="kabupaten">
+                                    <select class="form-control rounded-0" name="kabupaten">
                                         <?php foreach($kabupaten as $row):?>
                                         <option value="<?php echo $row->id_kabupaten?>" <?php if($row->id_kabupaten == $mhs2->kabupaten) echo 'selected'?>><?php echo $row->nama_kabupaten?></option>
                                         <?php endforeach;?>
@@ -201,7 +201,7 @@ $base_url=$this->config->item('app_url');?>
                             <div class="form-group row g-mb-15">
                                 <label for="nama" class="col-sm-3 col-form-label">Provinsi</label>
                                 <div class="col-sm-9">
-                                    <select name="provinsi">
+                                    <select class="form-control rounded-0" name="provinsi">
                                         <?php foreach($provinsi as $row):?>
                                             <option value="<?php echo $row->id_provinsi?>" <?php if($row->id_provinsi == $mhs2->provinsi) echo 'selected'?>><?php echo $row->nama_provinsi?></option>
                                         <?php endforeach;?>
@@ -267,7 +267,7 @@ $base_url=$this->config->item('app_url');?>
                             <div class="form-group row g-mb-15">
                                 <label for="nama" class="col-sm-3 col-form-label">b. Kota</label>
                                 <div class="col-sm-9">
-                                    <select name="kabupaten1">
+                                    <select class="form-control rounded-0" name="kabupaten1">
                                         <?php foreach($kabupaten as $row):?>
                                             <option value="<?php echo $row->id_kabupaten?>" <?php if($row->id_kabupaten == $mhs2->kabupaten1) echo 'selected'?>><?php echo $row->nama_kabupaten?></option>
                                         <?php endforeach;?>
@@ -285,7 +285,7 @@ $base_url=$this->config->item('app_url');?>
                             <div class="form-group row g-mb-15">
                                 <label for="nama" class="col-sm-3 col-form-label">d. Provinsi</label>
                                 <div class="col-sm-9">
-                                    <select name="provinsi1">
+                                    <select class="form-control rounded-0" name="provinsi1">
                                         <?php foreach($provinsi as $row):?>
                                             <option value="<?php echo $row->id_provinsi?>" <?php if($row->id_provinsi == $mhs2->provinsi1) echo 'selected'?>><?php echo $row->nama_provinsi?></option>
                                         <?php endforeach;?>

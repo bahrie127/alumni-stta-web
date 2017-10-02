@@ -44,8 +44,24 @@ class Model_tracer extends CI_Model{
         return $query;
     }
 
+    function insert_or_update_kuisioner($nim, $data){
+        $valid = $this->get_data_kuisioner($nim)->num_rows()>0;
+        if($valid){
+            $this->db->where('nim', $nim);
+            $this->db->update('t_kuisioner', $data);
+        }else{
+            $this->db->set($data);
+            $this->db->insert('t_kuisioner');
+        }
+    }
+
     function get_data_mahasiswa_by_nim_tgl_lahir($nim, $lahir){
         $query = $this->db->get_where('db_mhs', array('nim' => $nim, 'tgl_lahir' => $lahir));
+        return $query;
+    }
+
+    function get_data_kuisioner($nim){
+        $query = $this->db->get_where('t_kuisioner', array('nim' => $nim));
         return $query;
     }
 

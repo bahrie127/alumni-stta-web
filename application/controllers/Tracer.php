@@ -19,15 +19,19 @@ class Tracer extends CI_Controller
     }
 
     public function index(){
-        $data['error_login']="";
-        $data['tips'] = $this->model_content->get_content_home('tips')->result();
-        $data['lowongan'] = $this->model_content->get_content_home('lowongan')->result();
-        $data['agenda'] = $this->model_content->get_content_home('agenda')->result();
-        $data['news'] = $this->model_content->get_news_home('news')->result();
-        $data['title'] = 'Tracer Study';
-        $this->load->view("client/header", $data);
-        $this->load->view("client/content/tracer/login");
-        $this->load->view("client/footer");
+        if($this->session->userdata('nim') != ''){
+            redirect('tracer/home');
+        }else{
+            $data['error_login']="";
+            $data['tips'] = $this->model_content->get_content_home('tips')->result();
+            $data['lowongan'] = $this->model_content->get_content_home('lowongan')->result();
+            $data['agenda'] = $this->model_content->get_content_home('agenda')->result();
+            $data['news'] = $this->model_content->get_news_home('news')->result();
+            $data['title'] = 'Tracer Study';
+            $this->load->view("client/header", $data);
+            $this->load->view("client/content/tracer/login");
+            $this->load->view("client/footer");
+        }
     }
 
     public function search(){
@@ -56,11 +60,13 @@ class Tracer extends CI_Controller
         $this->load->view("client/footer");
     }
 
-    public function profil(){
+    public function profil($nim){
         $data['tips'] = $this->model_content->get_content_home('tips')->result();
         $data['lowongan'] = $this->model_content->get_content_home('lowongan')->result();
         $data['agenda'] = $this->model_content->get_content_home('agenda')->result();
         $data['news'] = $this->model_content->get_news_home('news')->result();
+        $data['mhs']= $this->model_tracer->get_data_alumni($nim)->row();
+        $data['mhs2']= $this->model_tracer->get_data_mahasiswa($nim)->row();
         $data['title'] = 'Tracer Study - Profil';
         $this->load->view("client/header", $data);
         $this->load->view("client/content/tracer/profil");
@@ -124,8 +130,6 @@ class Tracer extends CI_Controller
         $data['news'] = $this->model_content->get_news_home('news')->result();
         if (strlen($username) >=4 && strlen($password) >=4 && strlen($email)>=4) {
             $is_register = $this->model_tracer->get_data_alumni($nim)->row()->is_register;
-//            echo $is_register;
-//            exit;
             if($is_register==1){
                 $data['title'] = 'Tracer Study - Register';
                 $data['error_reg'] = 'Maaf, Anda sudah terdaftar, untuk mengetahui username/password harap hubungi admin.';
@@ -158,14 +162,6 @@ class Tracer extends CI_Controller
 
     public function login(){
         if($this->auth_client->do_login($this->input->POST('username'),$this->input->POST('password'))){
-//            $data['tips'] = $this->model_content->get_content_home('tips')->result();
-//            $data['lowongan'] = $this->model_content->get_content_home('lowongan')->result();
-//            $data['agenda'] = $this->model_content->get_content_home('agenda')->result();
-//            $data['news'] = $this->model_content->get_news_home('news')->result();
-//            $data['title'] = 'Tracer Study - Dashboard';
-//            $this->load->view("client/header", $data);
-//            $this->load->view("client/content/tracer/home/user");
-//            $this->load->view("client/footer");
             redirect('tracer/home');
         }else{
             $data['error_login']="username atau password salah";
@@ -187,10 +183,71 @@ class Tracer extends CI_Controller
         $data['news'] = $this->model_content->get_news_home('news')->result();
         $data['mhs']= $this->model_tracer->get_data_alumni($nim)->row();
         $data['mhs2']= $this->model_tracer->get_data_mahasiswa($nim)->row();
+        $data['kuis'] = $this->model_tracer->get_data_kuisioner($nim)->row();
         $data['title'] = 'Tracer Study - Kuisioner';
         $this->load->view("client/header", $data);
         $this->load->view("client/content/tracer/home/kuisioner");
         $this->load->view("client/footer");
+    }
+
+    public function kuisioner_submit(){
+        $this->auth_client->restrict();
+        $nim = $this->input->POST('nim');
+        $data['news'] = $this->model_content->get_news_home('news')->result();
+        $data['mhs']= $this->model_tracer->get_data_alumni($nim)->row();
+        $data['mhs2']= $this->model_tracer->get_data_mahasiswa($nim)->row();
+        $bag1_tahun_lulus = $this->input->POST('bag1_tahun_lulus');
+        $bag1_nama_instansi = $this->input->POST('bag1_nama_instansi');
+        $bag1_posisi_jabatan = $this->input->POST('bag1_posisi_jabatan');
+        $bag1_waktu_tunggu_pek = $this->input->POST('bag1_waktu_tunggu_pek');
+        $bag1_gaji_pertama = $this->input->POST('bag1_gaji_pertama');
+        $bag1_bidang_pek = $this->input->POST('bag1_bidang_pek');
+        $bag2_nama_instansi = $this->input->POST('bag2_nama_instansi');
+        $bag2_posisi_jabatan = $this->input->POST('bag2_posisi_jabatan');
+        $bag2_bidang_pek = $this->input->POST('bag2_bidang_pek');
+        $bag3_kategori_pek_sekarang = $this->input->POST('bag3_kategori_pek_sekarang');
+        $bag3_syarat_bhs_asing = $this->input->POST('bag3_syarat_bhs_asing');
+        $bag3_alasan_bhs_asing = $this->input->POST('bag3_alasan_bhs_asing');
+        $bag3_matkul_1 = $this->input->POST('bag3_matkul_1');
+        $bag3_matkul_2 = $this->input->POST('bag3_matkul_2');
+        $bag3_matkul_3 = $this->input->POST('bag3_matkul_3');
+        $bag3_materi_1 = $this->input->POST('bag3_materi_1');
+        $bag3_materi_2 = $this->input->POST('bag3_materi_2');
+        $bag3_materi_3 = $this->input->POST('bag3_materi_3');
+        $saran_stta = $this->input->POST('saran_stta');
+        $saran_prodi = $this->input->POST('saran_prodi');
+
+        $dataKuis = array(
+            'nim' => $nim,
+          'bag1_tahun_lulus' =>  $bag1_tahun_lulus,
+            'bag1_nama_instansi' =>  $bag1_nama_instansi,
+            'bag1_posisi_jabatan' =>  $bag1_posisi_jabatan,
+            'bag1_waktu_tunggu_pek' =>  $bag1_waktu_tunggu_pek,
+            'bag1_gaji_pertama' =>  $bag1_gaji_pertama,
+            'bag1_bidang_pek' =>  $bag1_bidang_pek,
+            'bag2_nama_instansi' =>  $bag2_nama_instansi,
+            'bag2_posisi_jabatan' =>  $bag2_posisi_jabatan,
+            'bag2_bidang_pek' =>  $bag2_bidang_pek,
+            'bag3_kategori_pek_sekarang' =>  $bag3_kategori_pek_sekarang,
+            'bag3_syarat_bhs_asing' =>  $bag3_syarat_bhs_asing,
+            'bag3_alasan_bhs_asing' =>  $bag3_alasan_bhs_asing,
+            'bag3_matkul_1' =>  $bag3_matkul_1,
+            'bag3_matkul_2' =>  $bag3_matkul_2,
+            'bag3_matkul_3' =>  $bag3_matkul_3,
+            'bag3_materi_1' =>  $bag3_materi_1,
+            'bag3_materi_2' =>  $bag3_materi_2,
+            'bag3_materi_3' =>  $bag3_materi_3,
+            'saran_stta' =>  $saran_stta,
+            'saran_prodi' =>  $saran_prodi
+        );
+
+        $this->model_tracer->insert_or_update_kuisioner($nim, $dataKuis);
+//        $data['title'] = 'Tracer Study - Kuisioner';
+//        $this->load->view("client/header", $data);
+//        $this->load->view("client/content/tracer/home/kuisioner");
+//        $this->load->view("client/footer");
+        redirect('tracer/kuisioner');
+
     }
 
     public function home(){

@@ -53,7 +53,7 @@ $base_url=$this->config->item('app_url');?>
                                         </div>
                                             <label class="col-sm-6">format: yyyy-mm-dd contoh :(1992-02-25) <br>
                                                 <?php if(!$tgl_valid){?>
-                                                    <p style="color: red">Format tanggal lahir salah</p>
+                                                    <p style="color: red">Tanggal lahir salah</p>
                                                 <?php }?>
 
                                             </label>

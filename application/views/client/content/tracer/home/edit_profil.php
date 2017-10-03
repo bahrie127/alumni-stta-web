@@ -71,12 +71,12 @@ $base_url=$this->config->item('app_url');?>
                     </button>
 
                     <div class="media">
-    <span class="d-flex g-mr-10 g-mt-5">
-      <i class="icon-check g-font-size-25"></i>
-    </span>
-        <span class="media-body align-self-center">
-      <strong><?php echo $update_status?></strong>
-    </span>
+                        <span class="d-flex g-mr-10 g-mt-5">
+                          <i class="icon-check g-font-size-25"></i>
+                        </span>
+                            <span class="media-body align-self-center">
+                          <strong><?php echo $update_status?></strong>
+                        </span>
                     </div>
                 </div>
                 <?php endif; ?>

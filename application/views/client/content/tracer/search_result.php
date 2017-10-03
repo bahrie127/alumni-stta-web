@@ -78,29 +78,30 @@ $base_url=$this->config->item('app_url');?>
 
                         <div id="shortcode5">
                             <div class="shortcode-html">
+                                <?php if($is_found){?>
                                 <!-- Table Bordered -->
                                 <div class="table-responsive">
                                     <table class="table table-bordered table-hover">
                                         <thead>
                                         <tr>
+                                            <th>Action</th>
                                             <th>NIM</th>
                                             <th>Nama</th>
                                             <th>Jurusan</th>
                                             <th>Angkatan</th>
-                                            <th>Action</th>
                                         </tr>
                                         </thead>
 
                                         <tbody>
                                         <?php foreach($alumni as $row):?>
                                         <tr>
+                                            <td>
+                                                <button class="btn btn-md u-btn-primary rounded-0" onclick="window.location.href='<?php echo $base_url?>/tracer/validate/<?php echo $row->nim?>'">Daftar</button>
+                                            </td>
                                             <td><?php echo $row->nim?></td>
                                             <td><a href="<?php echo $base_url ?>/tracer/profil/<?php echo $row->nim?>"><?php echo $row->nama?></a></td>
                                             <td><?php echo $row->nm_prodi?></td>
                                             <td>20<?php echo substr($row->nim,0,2)?></td>
-                                            <td>
-                                                <button class="btn btn-md u-btn-primary rounded-0" onclick="window.location.href='<?php echo $base_url?>/tracer/validate/<?php echo $row->nim?>'">Daftar</button>
-                                            </td>
                                         </tr>
                                         <?php endforeach; ?>
 
@@ -108,6 +109,11 @@ $base_url=$this->config->item('app_url');?>
                                     </table>
                                 </div>
                                 <!-- End Table Bordered -->
+                                <?php }else{?>
+                                    <div class="alert alert-danger" role="alert">
+                                        <p class="text-center">Nama alumni tidak ditemukan</p>
+                                    </div>
+                                <?php }?>
                             </div>
                         </div>
 

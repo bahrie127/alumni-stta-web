@@ -71,6 +71,15 @@ $base_url=$this->config->item('app_url');?>
                 <div id="shortcode1">
                     <div class="shortcode-html">
                         <!-- General Controls -->
+                        <?php if($update_status!=""):?>
+                            <div class="alert alert-success alert-dismissible fade show" role="alert">
+                                <button type="button" class="close" data-dismiss="alert" aria-label="Close">
+                                    <span aria-hidden="true">×</span>
+                                </button>
+                                <p><?php echo $update_status?></p>
+                            </div>
+
+                        <?php endif; ?>
                         <form class="g-brd-around g-brd-gray-light-v4 g-pa-30 g-mb-30" action="<?php echo $base_url?>/tracer/kuisioner_submit" method="POST">
 
                             <h4><strong>Data Diri</strong></h4>

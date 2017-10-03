@@ -50,6 +50,7 @@ class Tracer extends CI_Controller
         $jurusan = $this->input->POST('jurusan');
         $angkatan = $this->input->POST('angkatan');
         $data['alumni']= $this->model_tracer->search_alumni($nama, $jurusan, $angkatan)->result();
+        $data['is_found'] = $this->model_tracer->search_alumni($nama, $jurusan, $angkatan)->num_rows() > 0;
         $data['tips'] = $this->model_content->get_content_home('tips')->result();
         $data['lowongan'] = $this->model_content->get_content_home('lowongan')->result();
         $data['agenda'] = $this->model_content->get_content_home('agenda')->result();
@@ -67,6 +68,7 @@ class Tracer extends CI_Controller
         $data['news'] = $this->model_content->get_news_home('news')->result();
         $data['mhs']= $this->model_tracer->get_data_alumni($nim)->row();
         $data['mhs2']= $this->model_tracer->get_data_mahasiswa($nim)->row();
+        $data['is_found'] = $this->model_tracer->get_data_alumni($nim)->num_rows();
         $data['title'] = 'Tracer Study - Profil';
         $this->load->view("client/header", $data);
         $this->load->view("client/content/tracer/profil");
@@ -185,6 +187,7 @@ class Tracer extends CI_Controller
         $data['mhs2']= $this->model_tracer->get_data_mahasiswa($nim)->row();
         $data['kuis'] = $this->model_tracer->get_data_kuisioner($nim)->row();
         $data['title'] = 'Tracer Study - Kuisioner';
+        $data['update_status'] = '';
         $this->load->view("client/header", $data);
         $this->load->view("client/content/tracer/home/kuisioner");
         $this->load->view("client/footer");
@@ -242,11 +245,12 @@ class Tracer extends CI_Controller
         );
 
         $this->model_tracer->insert_or_update_kuisioner($nim, $dataKuis);
-//        $data['title'] = 'Tracer Study - Kuisioner';
-//        $this->load->view("client/header", $data);
-//        $this->load->view("client/content/tracer/home/kuisioner");
-//        $this->load->view("client/footer");
-        redirect('tracer/kuisioner');
+        $data['kuis'] = $this->model_tracer->get_data_kuisioner($nim)->row();
+        $data['update_status'] = 'Kuisioner berhasil dikirim';
+        $data['title'] = 'Tracer Study - Kuisioner';
+        $this->load->view("client/header", $data);
+        $this->load->view("client/content/tracer/home/kuisioner");
+        $this->load->view("client/footer");
 
     }
 

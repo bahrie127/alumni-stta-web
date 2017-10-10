@@ -48,4 +48,8 @@ class Home extends CI_Controller
         $this->load->view("client/footer");
     }
 
+    function testlte(){
+        $this->load->view("admin/test_lte");
+    }
+
 }
